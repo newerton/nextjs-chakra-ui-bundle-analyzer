@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
   output: 'export',
   basePath,
   experimental: {
+    optimizePackageImports: ["@chakra-ui/react"],
     reactCompiler: true,
   },
 }
