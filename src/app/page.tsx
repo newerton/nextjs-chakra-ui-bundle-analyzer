@@ -1,23 +1,21 @@
-import Link from "next/link";
-import { Button } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react';
+import Link from 'next/link';
 
 const dataSource = [
   {
-    env: "Build",
-    side: "nodejs (server)",
-    link: "https://newerton.github.io/nextjs-chakra-ui-bundle-analyzer/analyze/nodejs.html",
+    side: 'server',
+    link: 'https://newerton.github.io/nextjs-ant-design-bundle-analyzer/analyze/nodejs.html',
   },
   {
-    env: "Build",
-    side: "client (browser)",
-    link: "https://newerton.github.io/nextjs-chakra-ui-bundle-analyzer/analyze/client.html",
+    side: 'client',
+    link: 'https://newerton.github.io/nextjs-ant-design-bundle-analyzer/analyze/client.html',
   },
 ];
 
 export default function Home() {
   return (
     <div>
-      <div style={{ marginBottom: "20px" }}>
+      <div style={{ marginBottom: '20px' }}>
         <Button colorScheme="blue">Button</Button>
       </div>
 
@@ -31,8 +29,7 @@ export default function Home() {
         </thead>
         <tbody>
           {dataSource.map((item, index) => (
-            <tr key={index}>
-              <td>{item.env}</td>
+            <tr key={index.toString()}>
               <td>{item.side}</td>
               <td>
                 <Link

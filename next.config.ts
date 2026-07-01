@@ -1,23 +1,17 @@
 import bundleAnalyzer from '@next/bundle-analyzer';
-import { NextConfig } from 'next';
+import type { NextConfig } from 'next';
 
 const withBundleAnalyzer = bundleAnalyzer({
-  enabled: true,
+  enabled: process.env.ANALYZE === 'true',
   openAnalyzer: false,
-  analyzerMode: 'static',
 });
-
-// Create basePath for GitHub pages
-const basePath = process.env.NODE_ENV !== 'development' ? '/nextjs-chakra-ui-bundle-analyzer' : '';
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath,
+  reactCompiler: true,
   experimental: {
-    optimizePackageImports: ["@chakra-ui/react"],
-    reactCompiler: true,
+    optimizePackageImports: ['@chakra-ui/react'],
   },
-}
+};
 
-module.exports = withBundleAnalyzer(nextConfig)
-
+export default withBundleAnalyzer(nextConfig);
